@@ -1,0 +1,14 @@
+html,
+body,
+header,
+#pic {
+    height: 100%;
+}
+
+#pic {
+    background: url('https://wallpapercave.com/wp/wp3013506.jpg') center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

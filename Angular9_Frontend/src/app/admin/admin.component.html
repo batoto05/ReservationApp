@@ -1,0 +1,84 @@
+<section class="mt-10 mb-5">
+    <div class="container">
+        <mat-tab-group animationDuration="2000ms" class="border border-warning rounded-top">
+            <mat-tab label="HotelsInfo">
+                <table class="table table-hover table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">HotelName</th>
+                            <th scope="col">HotelLocation</th>
+                            <th scope="col">HotelAppartmentCategory</th>
+                            <th scope="col">HotelRooms</th>
+                            <th scope="col">RemiaingRooms</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let items of this.hotelDetails; index as i'>
+                        <tr>
+                            <th scope="row">{{i}}</th>
+                            <td>{{items.HotelName}}</td>
+                            <td>{{items.HotelLocation}}</td>
+                            <td>{{items.HotelAppartmentCategory}}</td>
+                            <td>{{items.HotelRooms}}</td>
+                            <td>{{items.remiaingRooms}}</td>
+                            <td><button type="submit" class="btn btn-outline-warning btn-sm" (click)="delete(items.id,'HotelsInfo')" onClick="window.location.reload();"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-tab>
+            <mat-tab label="BookingInfo">
+                <table class="table table-hover table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">HotelName</th>
+                            <th scope="col">HotelLocation</th>
+                            <th scope="col">HotelAppartmentCategory</th>
+                            <th scope="col">HotelRooms</th>
+                            <th scope="col">RemiaingRooms</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let items of this.bookingDetails; index as i'>
+                        <tr>
+                            <th scope="row">{{i}}</th>
+                            <td>{{items.id}}</td>
+                            <td>{{items.username}}</td>
+                            <td>{{items.hotelType}}</td>
+                            <td>{{items.start_date}}</td>
+                            <td>{{items.end_date}}</td>
+                            <td><button type="submit" class="btn btn-outline-warning btn-sm" (click)="delete(items.id,'BookingInfo')" onClick="window.location.reload();"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-tab>
+            <mat-tab label="AccountsInfo">
+                <form>
+                    <table class="table table-hover table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">UserId</th>
+                                <th scope="col">UserName</th>
+                                <th scope="col">UserEmail</th>
+                                <th scope="col">UserPassword</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor='let items of this.memberDetails; index as i'>
+                            <tr>
+                                <th scope="row">{{i}}</th>
+                                <td>{{items.id}}</td>
+                                <td>{{items.name}}</td>
+                                <td>{{items.email}}</td>
+                                <td>{{items.password}}</td>
+                                <td><a type="submit" class="btn btn-outline-warning btn-sm" (click)="delete(items.id,'AccountsInfo')"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</section>

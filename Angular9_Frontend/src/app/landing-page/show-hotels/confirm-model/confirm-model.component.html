@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+    <p>confirm Your Details</p>
+    <mat-form-field style="width: 100%;">
+        <mat-label>User Name</mat-label>
+        <input matInput [(ngModel)]="data.userName">
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+        <mat-label>Property Type</mat-label>
+        <input matInput [(ngModel)]="data.type" value="{{data.type}}">
+    </mat-form-field>
+    <mat-form-field color="accent" style="width: 49%;">
+        <mat-label style="color: #CACACA;">From</mat-label>
+        <input matInput [matDatepicker]="picker1" #from [(ngModel)]="data.from" [value]="data.from">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field color="accent" style="width: 49%;">
+        <mat-label style="color: #CACACA;">To</mat-label>
+        <input matInput [value]="data.to" [matDatepicker]="picker2" [(ngModel)]="data.to">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+        <mat-label>Total Persons</mat-label>
+        <input matInput [(ngModel)]="data.rangeOfPeople" value="{{data.rangeOfPeople}}">
+    </mat-form-field>
+    <p><b>Total No of Amount :</b> RM200</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirm</button>
+</div>

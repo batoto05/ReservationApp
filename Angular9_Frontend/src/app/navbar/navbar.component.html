@@ -1,0 +1,146 @@
+<!--Navbar -->
+<nav class=" navbar navbar-expand-lg navbar-dark orange lighten-1 fixed-top">
+    <a class="navbar-brand" href="#">Al-Salah</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">Features</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More
+                </a>
+                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                    <a routerLink="promotion-packages" class="dropdown-item" href="#">Promotions</a>
+                    <a routerLink="gallery" class="dropdown-item" href="#">Gallery</a>
+                    <hr class="md-4">
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalQrForm">Refer To A Friend !!</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#modalSignupForm">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#modalLoginForm">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">
+                    <i class="fab fa-google-plus-g"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li *ngIf='showAccount' class="nav-item active">
+                <a class="nav-link waves-effect waves-light" (click)='openMessageBar()'>
+                    <i class="fas fa-envelope"></i> Messages
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <!-- *ngIf='showAccount' -->
+            <li class="nav-item avatar dropdown">
+                <a class="nav-link p-0 waves-effect waves-light " id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" height="35" alt="avatar image">
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
+                    <a class="dropdown-item waves-effect waves-light" href="#">{{user.MemberName}}</a>
+                    <hr>
+                    <a routerLink="addHotel" class="dropdown-item waves-effect waves-light" href="#">Add Hotel</a>
+                    <a routerLink="requireAdminAuth" class="dropdown-item waves-effect waves-light" href="#">Admin Panel</a>
+                    <a class="dropdown-item waves-effect waves-light" (click)='openSnackBar()'>Profile</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">Log Out</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalQrForm" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Refer To A friend</h4>
+                <button aria-label="close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <img src="assets/Images_/QrCode/qr-code.png" style="width: 400px; height: 400px;">
+            </div>
+        </div>
+    </div>
+</div>
+<!--/.Navbar -->
+<!--modal Content-->
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalLoginForm" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">SignIn</h4>
+                <button aria-label="close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-3"><i class="fa fa-envelope prefix grey-text"></i>
+                        <input class="form-control validate" id="email" type="email" #GMail>
+                        <label data-error="wrong" data-success="right" for="email">Email</label>
+                    </div>
+                    <div class="md-form mb-3"><i class="fa fa-lock prefix grey-text"></i>
+                        <input class="form-control validate" id="password" type="password" #Gpassword>
+                        <label data-error="wrong" data-success="right" for="password">Password</label>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-primary" (click)='getLogin(GMail.value, Gpassword.value)'>Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalSignupForm" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Sign Up</h4>
+                <button aria-label="close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-3"><i class="fa fa-user prefix grey-text"></i>
+                        <input class="form-control validate" id="name" type="text" #name>
+                        <label data-error="wrong" data-success="right" for="name">Full Name</label>
+                    </div>
+                    <div class="md-form mb-3"><i class="fa fa-envelope prefix grey-text"></i>
+                        <input class="form-control validate" id="signupEmail" type="email" #email>
+                        <label data-error="wrong" data-success="right" for="signupEmail">Email</label>
+                    </div>
+                    <div class="md-form mb-3"><i class="fa fa-lock prefix grey-text"></i>
+                        <input class="form-control validate" id="signupPassword" type="password" #password>
+                        <label data-error="wrong" data-success="right" for="signupPassword">Password</label>
+                    </div>
+                    <div class="md-form mb-3"><i class="fa fa-lock prefix grey-text"></i>
+                        <input class="form-control validate" id="resignupPassword" type="password" #repassword>
+                        <label data-error="wrong" data-success="right" for="resignupPassword">Re-Type Password</label>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-primary" (click)='addAccount(name.value,email.value,password.value,repassword.value)'><i class="fa fa-user-plus"></i>&ensp; Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

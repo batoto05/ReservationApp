@@ -1,0 +1,29 @@
+.example-card {
+    max-width: 600px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+p.dotted {
+    border: 1px;
+    padding: 1px;
+    border-style: solid;
+    border-color: #FF0000;
+}
+
+p.border {
+    border: 1px;
+    padding: 1px;
+    border-style: solid;
+    border-color: #287EC7;
+}
+
+p.blackB {
+    border: 1px;
+    padding: 1px;
+    border-style: dotted;
+    border-color: black;
+}

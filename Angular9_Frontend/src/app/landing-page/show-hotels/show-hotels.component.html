@@ -1,0 +1,39 @@
+<div *ngFor='let lst of this.showInfo.hotelInfoL' class="container ">
+    <div style="width:800px; margin:0 auto;">
+        <mat-card class="example-card view overlay hoverable" style="margin-bottom: 10px !important;">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{lst.HotelName}}</mat-card-title>
+                <mat-card-subtitle>{{lst.HotelAppartmentCategory}}</mat-card-subtitle>
+            </mat-card-header>
+            <div class="row">
+                <div class="col">
+                    <img mat-card-image src="{{lst.HotelImage}}" alt="Photo of a Shiba Inu" style="float: left;" class="image">
+                </div>
+                <div class="col">
+                    <h4>Description</h4>
+                    <p>{{lst.HotelMessage}}</p>
+                </div>
+            </div>
+            <mat-card-content>
+                <p><b class="font-weight-bold pt-5 mb-2">Rooms Available&nbsp;&nbsp;</b>- {{lst.remiaingRooms}}&nbsp;</p>
+                <p><b class="font-weight-bold pt-5 mb-2">Price per Room&nbsp;&nbsp;</b>- RM{{lst.price}}&nbsp;</p>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="dotted">Free Cancellation</p>
+                    </div>
+                    <div class="col">
+                        <p class="border">Excellent Location</p>
+                    </div>
+                    <div class="col">
+                        <p class="blackB">City Center</p>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)='book();openDialog()'>Book</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

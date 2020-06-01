@@ -1,0 +1,48 @@
+<br>
+<section class="mt-5">
+    <div class="col-md-10 hoverable" style="width:800px; margin:0 auto;">
+        <form class="text-center border border-light p-5 form-horizontal">
+
+            <p class="h4 mb-1">Add Hotel Details</p>
+
+            <!-- Name -->
+            <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name" #HotelName>
+
+            <!-- Email -->
+            <input type="text" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Location" #HotelLocation>
+
+            <!--Image-->
+            <input type="text" id="HotelFormImage" class="form-control mb-4" placeholder="Image URL" #HotelImage>
+
+            <!-- Subject -->
+            <label>Category</label>
+            <select class="browser-default custom-select mb-4" #HotelAppartmentCategory>
+            <option value="" disabled>Choose option</option>
+            <option value="Apartments" selected>Apartments</option>
+            <option value="PrivateVillas">Private Villas</option>
+            <option value="Bungalows">Bungalows</option>
+        </select>
+
+            <input type="number" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Total Rooms" #HotelRooms>
+
+            <input type="text" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Price" #HotelLocation>
+
+            <!-- Message -->
+            <div class="form-group">
+                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message" #HotelMessage></textarea>
+            </div>
+
+            <!-- Copy -->
+            <div class="custom-control custom-checkbox mb-4">
+                <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+                <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+            </div>
+
+            <!-- Send button -->
+            <button class="btn btn-outline-orange" (click)='addHotel(HotelName.value,HotelLocation.value,HotelImage.value,HotelAppartmentCategory.value,
+            HotelRooms.value,HotelMessage.value); openSnackBar()' type="submit">Send</button>
+
+        </form>
+    </div>
+</section>
+<br>
